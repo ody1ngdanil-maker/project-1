@@ -6,6 +6,169 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Restoran</title>
+    <style>
+        /* styles.css - Стили для веб-интерфейса чата */
+
+/* Сброс отступов и использование современного бокс-модели */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Контейнер чата */
+.chat-container {
+    width: 100%;
+    max-width: 500px;
+    height: 80vh;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Шапка чата */
+.chat-header {
+    background: #0088cc; /* Telegram-like blue */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Область сообщений */
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Общие стили для сообщений */
+.message {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Сообщение от бота */
+.bot-message {
+    align-self: flex-start;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-bottom-left-radius: 5px;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Сообщение от пользователя */
+.user-message {
+    align-self: flex-end;
+    background: #0088cc;
+    color: white;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,136,204,0.2);
+}
+
+/* Блок с индикатором печати (когда бот "печатает") */
+.typing-indicator {
+    align-self: flex-start;
+    background: white;
+    padding: 15px;
+    border-radius: 18px;
+    display: flex;
+    gap: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background: #999;
+    border-radius: 50%;
+    animation: typingBounce 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Панель ввода */
+.chat-input-container {
+    display: flex;
+    border-top: 1px solid #e0e0e0;
+    background: white;
+}
+
+#messageInput {
+    flex: 1;
+    border: none;
+    padding: 20px;
+    font-size: 1rem;
+    outline: none;
+}
+
+#sendButton {
+    background: #0088cc;
+    color: white;
+    border: none;
+    padding: 0 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+#sendButton:hover {
+    background: #0077b3;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-10px); }
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .chat-container {
+        height: 90vh;
+        border-radius: 10px;
+    }
+
+    .chat-header {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+}
+    </style>
 </head>
 <body>
    <div id="main">
@@ -14,6 +177,8 @@
        <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Accusantium ipsum magni, molestias </p>
        <button id="buy">Купить</button>
    </div>
+<script src="https://telegram.org/js/telegram-web-app.js?59"></script>
+
 </body>
 </html>
 
